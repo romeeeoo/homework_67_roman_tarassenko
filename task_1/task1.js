@@ -3,7 +3,7 @@ const container = document.getElementById('container')
 const box = []
 
 const addElement = function () {
-    if (document.getElementById('alert') === null) {
+    if (document.getElementById('alert')) {
         const myDiv = document.createElement("div")
         myDiv.className = "alert"
         myDiv.id = "alert"
