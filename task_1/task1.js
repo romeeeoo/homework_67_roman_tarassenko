@@ -7,16 +7,16 @@ const addElement = function () {
         const myDiv = document.createElement("div")
         myDiv.className = "alert"
         myDiv.id = "alert"
-        myDiv.style.display = "block"
-        myDiv.innerHTML = "<div style='background-color: yellow'><span>Very important" +
-            "alert!</span><button id='close-btn' type='button' onclick=`${removeElement()}`>закрыть!</button></div>"
+        myDiv.style.display = "table"
+        myDiv.innerHTML = "<div style='background-color: yellow'><span>Very important " +
+            "alert! </span><button id='close-btn' type='button' onclick='removeElement()'>закрыть!</button></div>"
         box.push(myDiv)
         container.append(...box)
         setTimeout(removeElement, 5000)
 
     } else {
         console.log("try to display")
-        document.getElementById('alert').style.display = "block"
+        document.getElementById('alert').style.display = "table"
         setTimeout(removeElement, 5000)
     }
 }
