@@ -1,14 +1,29 @@
-const button = document.getElementById('add-item-btn')
+const plusButton = document.getElementById('add-item-btn')
 const container = document.getElementById('container')
 const box = []
 
 const addElement = function () {
-    const myDiv = document.createElement("div")
-    myDiv.className = "alert"
-    myDiv.innerHTML = "<div style='background-color: blue'><button type='button'>закрыть!</button></div>"
-    box.push(myDiv)
-    container.append(...box)
+    if (document.getElementById('alert') === null) {
+        const myDiv = document.createElement("div")
+        myDiv.className = "alert"
+        myDiv.id = "alert"
+        myDiv.style.display = "block"
+        myDiv.innerHTML = "<div style='background-color: yellow'><span>Very important" +
+            "alert!</span><button id='close-btn' type='button' onclick=`${removeElement()}`>закрыть!</button></div>"
+        box.push(myDiv)
+        container.append(...box)
+        setTimeout(removeElement, 5000)
+
+    } else {
+        console.log("try to display")
+        document.getElementById('alert').style.display = "block"
+        setTimeout(removeElement, 5000)
+    }
 }
 
-button.addEventListener('click', addElement);
+function removeElement() {
+    document.getElementById('alert').style.display = "none"
+    console.log('close')
+}
 
+plusButton.addEventListener('click', addElement);
